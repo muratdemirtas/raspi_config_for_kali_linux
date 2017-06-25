@@ -46,22 +46,11 @@ echo  '###########                (30%)\r'
 if [ $(dpkg-query -W -f='${Status}' raspi-config 2>/dev/null | grep -c "ok installed") -eq 1 ];
 then
     echo raspi-config is already installed on your system
-    echo did you want to upgrade your raspi-config utility?, type yes or no..
+    exit
 
 else
     echo "raspi-config is not installed on your system"
 
-    query_ok=1
-    query_ok=$query_ok
-    while [ query_ok != 0 ]
-    do
-        read user_response
-        if [[ $user_response != "yes" && $user_response != "no" ]]
-        then
-          echo pls only type yes or no
-
-        elif [ $user_response == "yes" ]
-        then
             wget http://archive.raspberrypi.org/debian/pool/main/r/raspi-config/raspi-config_20160527_all.deb -P /tmp
             echo  '###############                (40%)\r'
             apt-get install libnewt0.52 whiptail parted triggerhappy lua5.1 alsa-utils -y
@@ -95,13 +84,6 @@ else
                 exit 0;
                 
            fi
-
-        elif [ $user_response == "no" ]
-        then
-            echo operation was cancelled by user,exiting
-            exit 2
-        fi
-    done;
 
 fi
 
