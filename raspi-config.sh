@@ -50,7 +50,7 @@ then
 
 else
     echo "raspi-config is not installed on your system"
-    echo did you want to upgrade your raspi-config utility?, type yes or no..
+
     query_ok=1
     query_ok=$query_ok
     while [ query_ok != 0 ]
