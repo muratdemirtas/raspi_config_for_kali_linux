@@ -83,18 +83,17 @@ else
               echo  '############################(100%)\r'
               exit 0;
             else
-                echo  "boot sector mounting";
-                sudo  mount /dev/mmcblk0p1 /boot
-                echo  "boot sector checking";
-                echo  '#############################  (90%)\r'
-                if echo "$is_boot_sector_mount" | grep -q "$boot_identifier";
-                then
-                    echo "boot sector spotted, installing finished"
-                    echo Raspi-config is now installed, run it by typing: sudo raspi-config
-                    echo The quieter you become, the more you are able to hear
-                    echo ############################(100%)\r
-                    exit 0;
-                fi
+                echo "boot sector mounting";
+                sudo mount /dev/mmcblk0p1 /boot
+                echo "boot sector mounted";
+                echo '#############################  (90%)\r'
+                echo "boot sector spotted, installing finished"
+                echo Raspi-config is now installed, run it by typing: sudo raspi-config
+                echo "dont forget type sudo  mount /dev/mmcblk0p1 /boot if you want to run raspi-config after system reboot"
+                echo The quieter you become, the more you are able to hear
+                echo ############################(100%)\r
+                exit 0;
+                
            fi
 
         elif [ $user_response == "no" ]
