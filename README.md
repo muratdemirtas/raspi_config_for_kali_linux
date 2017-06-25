@@ -1,5 +1,5 @@
 # raspi_config_for_kali_linux
-helper script for install raspi-config on kali linux os
+helper script for install raspi-config on kali linux os,
 this script must be run with sudo.
 
 
